@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-title">🐱 咪咪抓视频</div>
+  <div class="hero-sub"><span id="site-label" class="site-badge"></span></div>
+</header>
+<div class="tabs">
+  <button id="tab-page" class="tab active">本页下载</button>
+  <button id="tab-batch" class="tab" style="display:none">批量下载</button>
+</div>
+
+<div id="pane-page" class="pane">
+  <div class="row">
+    <span class="pane-title">当前页面的作品</span>
+    <button id="btn-rescan" class="mini">重新抓取</button>
+  </div>
+  <div id="list" class="list"><div class="empty">正在抓取当前页面…</div></div>
+  <div class="row setting">
+    <label><input type="checkbox" id="float-toggle" checked> 在 X/抖音/TikTok/小红书媒体右上角显示下载图标</label>
+  </div>
+  <div class="hint">本页下载只取当前正在看的作品。<br>抖音、TikTok 和小红书图文可逐张或一键下载全部图片；识别到原声时也可单独下载音频。</div>
+</div>
+
+<div id="pane-batch" class="pane hidden">
+  <div class="section-title">当前页面识别到的作品 <span id="batch-count" class="muted"></span></div>
+  <div id="batch-stats" class="muted stats-line"></div>
+  <div id="diag-box" class="diagbox" style="display:none;"></div>
+  <div class="row">
+    <label class="selall"><input type="checkbox" id="sel-all"> 全选</label>
+    <div class="row-btns">
+      <button id="btn-diag-copy" class="mini">复制诊断信息</button>
+      <button id="btn-dl-selected" class="primary" disabled>下载选中</button>
+    </div>
+  </div>
+  <div id="page-progress" class="progress"></div>
+  <div id="batch-page-list" class="list"><div class="empty">进入抖音、TikTok 或小红书创作者主页后，上下滚动让作品加载出来</div></div>
+  <hr class="sep">
+  <div class="section-title">粘贴链接批量下载</div>
+  <textarea id="urls" placeholder="每行粘贴一个视频或图文链接，例如：&#10;https://www.douyin.com/note/xxx&#10;https://www.tiktok.com/@user/photo/xxx&#10;https://www.xiaohongshu.com/explore/xxx"></textarea>
+  <div class="row">
+    <button id="btn-batch" class="primary">开始批量下载</button>
+    <button id="btn-clear" class="mini">清空</button>
+  </div>
+  <div id="progress" class="progress"></div>
+  <div id="batch-list" class="list"></div>
+  <div class="hint">粘贴链接方式会在后台逐个打开页面解析（用你当前浏览器的登录状态），完成后自动关闭，请勿中途关闭浏览器。</div>
+</div>
+
+<script src="../shared/core.js"></script>
+<script src="popup.js"></script>
+<div id="ver-foot" class="verfoot"></div>
+</body>
+</html>

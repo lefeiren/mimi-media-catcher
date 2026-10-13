@@ -1,0 +1,79 @@
+{
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "咪咪抓视频",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "shared/core.js",
+        "content/inject.js"
+      ],
+      "matches": [
+        "*://*.douyin.com/*",
+        "*://*.tiktok.com/*",
+        "*://*.xiaohongshu.com/*",
+        "*://*.youtube.com/*",
+        "*://youtu.be/*",
+        "*://x.com/*",
+        "*://twitter.com/*"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "js": [
+        "shared/core-isolated.js",
+        "content/bridge.js"
+      ],
+      "matches": [
+        "*://*.douyin.com/*",
+        "*://*.tiktok.com/*",
+        "*://*.xiaohongshu.com/*",
+        "*://*.youtube.com/*",
+        "*://youtu.be/*",
+        "*://x.com/*",
+        "*://twitter.com/*"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ],
+  "description": "X、抖音、TikTok 与小红书视频和图文下载，支持多档画质、单条作品与创作者主页批量下载。",
+  "host_permissions": [
+    "*://*.douyin.com/*",
+    "*://*.tiktok.com/*",
+    "*://*.xiaohongshu.com/*",
+    "*://*.youtube.com/*",
+    "*://youtu.be/*",
+    "*://x.com/*",
+    "*://twitter.com/*"
+  ],
+  "manifest_version": 3,
+  "name": "咪咪抓视频",
+  "permissions": [
+    "downloads",
+    "storage",
+    "tabs",
+    "sidePanel"
+  ],
+  "version": "0.5.5",
+  "side_panel": {
+    "default_path": "sidepanel/sidepanel.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

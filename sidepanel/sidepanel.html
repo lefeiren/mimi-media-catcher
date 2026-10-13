@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../popup/popup.css">
+<style>
+  body { width: auto; }
+  .sp-hero { background: linear-gradient(135deg, #6d5cff 0%, #ff5c8a 100%); color: #fff; padding: 14px 14px 12px; display: flex; justify-content: space-between; align-items: center; }
+  .sp-title { font-size: 15px; font-weight: 700; }
+  .sp-hero .mini { border: 1px solid rgba(255,255,255,.6); background: rgba(255,255,255,.15); color: #fff; }
+  .sp-hero .mini:hover { background: rgba(255,255,255,.3); color: #fff; border-color: #fff; }
+  .sp-toolbar { padding: 10px 12px 0; }
+  #sp-list { padding: 0 12px; }
+  #sp-progress { padding: 0 12px; }
+  .hint { padding: 0 12px 12px; }
+</style>
+</head>
+<body>
+<div class="sp-hero">
+  <div>
+  <div class="sp-title">🐱 咪咪抓视频 · 批量下载</div>
+    <div id="sp-site" style="font-size:12px;margin-top:2px;opacity:.85;"></div>
+  </div>
+  <button id="sp-rescan" class="mini">重新抓取</button>
+</div>
+<div class="sp-toolbar row">
+  <label class="selall"><input type="checkbox" id="sp-sel-all"> 全选 <span id="sp-count" class="muted"></span></label>
+  <button id="sp-dl" class="primary" disabled>下载选中</button>
+</div>
+<div id="sp-progress" class="progress"></div>
+<div id="sp-list" class="list" style="margin-top:8px;"><div class="empty">正在识别当前页面的作品…</div></div>
+<div class="hint">批量下载只在抖音、TikTok 或小红书创作者主页开放。图文作品会下载其中全部图片。</div>
+<div id="sp-ver" style="font-size:11px;color:#999;text-align:center;padding:6px;"></div>
+<script src="../shared/core.js"></script>
+<script src="sidepanel.js"></script>
+</body>
+</html>
